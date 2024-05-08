@@ -2,6 +2,7 @@
 'use client'
 import React from 'react'
 import {useState, useEffect} from 'react'
+import Image from 'next/image';
 
 function Card({spec}) {
 
@@ -19,7 +20,7 @@ function Card({spec}) {
     <div className='mt-12 ml-12'>
 
 <div className="w-48 h-48 bg-blue-500 text-white text-xxl flex justify-center items-center relative hover:bg-blue-400 hover:-translate-y-2 transition-transform">
-      <div ><button>{spec}</button> </div>
+      <div ><Image src={spec} alt='buy'/> </div>
     </div>
         
     </div>

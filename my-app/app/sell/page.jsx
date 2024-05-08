@@ -30,7 +30,7 @@ function Buy() {
           <>
             {products.map((pro) => (
               <div key={pro._id}>
-                <Link href={`/product/${pro._id}`}>
+                <Link href={`/${pro._id}`}>
                   <div>{pro._id}
                     {pro.productName} <img src={pro.imageName} />
                  </div>
@@ -47,6 +47,3 @@ function Buy() {
 }
 
 export default Buy;
-
-
-

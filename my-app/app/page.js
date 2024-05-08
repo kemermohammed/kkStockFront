@@ -2,21 +2,29 @@
 import Card from './component/card'
 import Header from './component/header'
 import Link from 'next/link'
+import buy from  '../public/buy.jpg'
+import sell from  '../public/sell.jpg'
+import product from '../public/product.jpg'
+import stock from  '../public/stock.jpg'
+
 
 export default function Home() {
   return (
-    <div mt-12 ml-4>
+    <div className='flex  '>
    {/* <Header/>   */}
    <div>
     <Link href="/buy">
-<Card spec="BUY"/></Link></div>
+<Card spec={buy}/></Link></div>
+
+<Link href='/sell'>
 <div>
-<Card spec="SELL"/></div>
+<Card spec={sell}/></div></Link>
 <div>
   <Link href='/product'>
-<Card spec="PRODUCT" /></Link></div>
+<Card spec={product} /></Link></div>
+<Link href='/stock'>
 <div>
-<Card spec="STOCK"/></div>
+<Card spec={stock}/></div></Link>
 
 
     </div>

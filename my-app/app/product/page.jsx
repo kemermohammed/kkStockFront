@@ -3,6 +3,7 @@ import React from 'react'
 import Card from '../component/card'
 import Link from 'next/link'
 import { useState,useEffect} from 'react'
+import product from '../../public/product.jpg'
 
 function Page() {
   
@@ -22,7 +23,7 @@ function Page() {
     <div>
         <div>
             <Link href='./newProduct'>
-      <Card spec='create new product'/></Link></div>
+      <Card spec={product}/></Link></div>
 <div>
     {produc? (<>{produc.map(pro => (
   <div key={pro.productId}>{pro.productName} <img src={pro.imageName} />
