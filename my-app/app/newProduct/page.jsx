@@ -91,6 +91,7 @@ import { useState } from "react";
 function App() {
   const [productName, setProductName] = useState("");
   const [imageName, setImage] = useState(null);
+  const [submit,setSubmit] = useState(false);
 
   const submitImage = async (e) => {
     e.preventDefault();
@@ -100,14 +101,17 @@ function App() {
     formData.append("imageName", imageName); 
 
     try {
-      const response = await fetch("http://localhost:3003/product", {
+      const response = await fetch("https://kkstockback-3.onrender.com/product", {
         method: "POST",
         body: formData,
       });
 
       if (response.ok) {
         console.log("Image uploaded successfully");
-        // Handle success
+        alert("submitted")
+        setImage(null)
+        setProductName("")
+        
       } else {
         console.error("Failed to upload image:", response.statusText);
         // Handle error

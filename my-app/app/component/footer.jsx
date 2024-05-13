@@ -6,7 +6,7 @@ import { faTelegram } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-4 mt-12 mb-2">
+    <footer className="bg-gray-900 text-white py-4 mt-28 mb-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div className="flex items-center">
           <p className="mr-4">Phone: 0955937183</p>

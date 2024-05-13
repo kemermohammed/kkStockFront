@@ -43,30 +43,32 @@ function ProductPage({ params }) {
     
   }, []);
 
-  const handleBuy = async () => {
+  const handleSell = async () => {
     try {
-      const res = await fetch('https://kkstockback-3.onrender.com/buy', {
+      const res = await fetch('https://kkstockback-3.onrender.com/sell', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          buyId: params.id,
-          buyQuantity: quantity,
-          buyPrice: price
+          sellId: params.id,
+          sellQuantity: quantity,
+          sellPrice: price
         }),
       });
 
       if (res.ok) {
-        console.log('Product bought successfully');
-        alert('product bought successfully')
+        console.log('Product sold successfully');
+        alert('product sold successfully')
         setPrice('')
        
         setQuantity(0)
       } else {
+        alert('unsuccessfully')
         console.error('Failed to buy product');
       }
     } catch (error) {
+      alert('unsuccessfully')
       console.error('Error buying product:', error);
     }
   };
@@ -91,7 +93,7 @@ function ProductPage({ params }) {
             placeholder="Enter price"
             onChange={(e) => setPrice(e.target.value)}
           />
-          <button onClick={handleBuy}>Buy</button>
+          <button onClick={handleSell}>Sell</button>
         </>
       )}
     </div>
@@ -99,71 +101,3 @@ function ProductPage({ params }) {
 }
 
 export default ProductPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // 'use client'
-// // import { useState, useEffect } from 'react';
-
-// // function ProductPage({ productId }) {
-// //   const [product, setProduct] = useState(null);
-
-// //   useEffect(() => {
-// //     const fetchProduct = async () => {
-// //       try {
-// //         const res = await fetch(`http://localhost:3003/product/${productId}`);
-// //         if (res.ok) {
-// //           const data = await res.json();
-// //           setProduct(data.product); // assuming the response object has a property 'product' containing the product details
-// //         } else {
-// //           console.error('Failed to fetch product');
-// //         }
-// //       } catch (error) {
-// //         console.error('Error fetching product:', error);
-// //       }
-// //     };
-
-// //     if (productId) {
-// //       fetchProduct();
-// //     }
-// //   }, [productId]);
-
-// //   return (
-// //     <div>
-// //       <h1>Product Details</h1>
-// //       <p>Product ID: {productId}</p>
-// //       {product && (
-// //         <>
-// //           <p>Product Name: {product.name}</p> {/* Assuming the product object has a 'name' property */}
-// //           <img src={product.image} alt={product.name} /> {/* Assuming the product object has an 'image' property */}
-// //           {/* Render other product details here */}
-// //         </>
-// //       )}
-// //     </div>
-// //   );
-// // }
-
-// // export default ProductPage;
-
-
-
-  

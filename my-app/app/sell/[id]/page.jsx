@@ -1,3 +1,21 @@
+'use client'
+
+
+// import React from 'react'
+
+// function Test({params}) {
+//   return (
+//     <div>
+//       {params.id}
+//     </div>
+//   )
+// }
+
+// export default Test
+
+
+
+
 import React, { useState, useEffect } from 'react';
 
 function ProductPage({ params }) {
@@ -27,20 +45,24 @@ function ProductPage({ params }) {
 
   const handleBuy = async () => {
     try {
-      const res = await fetch('http://localhost:3003/sell', {
+      const res = await fetch('https://kkstockback-3.onrender.com/buy', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          sellId: params.id,
-          sellQuantity: quantity,
-          sellPrice: price
+          buyId: params.id,
+          buyQuantity: quantity,
+          buyPrice: price
         }),
       });
 
       if (res.ok) {
         console.log('Product bought successfully');
+        alert('product sold successfully')
+        setPrice('')
+       
+        setQuantity(0)
       } else {
         console.error('Failed to buy product');
       }
